@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On Options -Indexes RewriteCond %{REQUEST_URI}
+  ^/FrontEnd/(login|register|index)\.php$ [OR] RewriteCond %{REQUEST_URI}
+  ^/FrontEnd/(login|register|index)\.html$ RewriteRule ^ - [L] RewriteCond
+  %{REQUEST_URI} ^/FrontEnd/assets/ RewriteRule ^ - [L] RewriteCond
+  %{REQUEST_FILENAME} !-f RewriteCond %{REQUEST_FILENAME} !-d RewriteRule ^(.*)$
+  index.php/$1 [L,QSA]
+</IfModule>
